@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudyController : PlayerInput
 {
-    public ThunderCloud summonCould;
+    public ThunderCloud summonCloud;
     public Tornado tornadoForm;
 
     [Header("Improvements")]
@@ -12,10 +12,10 @@ public class CloudyController : PlayerInput
     
     public override IEnumerator MainAbility()
     {
-        yield return new WaitForSeconds(summonCould.castTime);
+        yield return new WaitForSeconds(summonCloud.castTime);
 
-        GameObject go = Instantiate(summonCould.cloudPrefab, transform.position, Quaternion.identity);
-        go.GetComponent<MovingSpawnerController>().SetStats(lastInput, summonCould.timeBetweenSpawns, summonCould.duration, summonCould.moveSpeed);
+        GameObject go = Instantiate(summonCloud.cloudPrefab, transform.position, Quaternion.identity);
+        go.GetComponent<MovingSpawnerController>().SetStats(lastInput, summonCloud.timeBetweenSpawns, summonCloud.duration, summonCloud.moveSpeed);
 
         StartCoroutine(RegularInput());
     }
